@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Tessy ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Falling Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Code Entry Screen -->
+    <div class="screen" id="codeScreen">
+        <div class="code-container">
+            <div class="secret-message">🎁 A Secret Surprise 🎁</div>
+            <h1 class="code-title">Tessy's Birthday Magic</h1>
+            <p class="code-subtitle">Enter the secret code to unlock your surprise</p>
+            
+            <div class="code-input-wrapper">
+                <input 
+                    type="password" 
+                    id="codeInput" 
+                    class="code-input" 
+                    placeholder="••••"
+                    maxlength="4"
+                >
+                <button class="code-button" onclick="checkCode()">Unlock</button>
+            </div>
+            
+            <div class="error-message" id="errorMessage"></div>
+            <p class="hint">💡 Hint: Think of a special year...</p>
+        </div>
+    </div>
+
+    <!-- Main Birthday Experience Screen -->
+    <div class="screen hidden" id="mainScreen">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">Happy Birthday<br><span class="name-highlight">Tessy</span> ❤️</h1>
+            <p class="date-text">Today is Your Special Day</p>
+        </header>
+
+        <!-- Birthday Message Section -->
+        <section class="message-section">
+            <div class="message-card">
+                <div class="message-icon">💕</div>
+                <h2>A Message Just For You</h2>
+                <p class="birthday-message">
+                    Dear Tessy,
+                </p>
+                <p class="birthday-message">
+                    Happy Birthday to the most wonderful person in my life! Today, I wanted to create something special just for you—a little corner of the internet filled with love, warmth, and all the feelings you inspire in me.
+                </p>
+                <p class="birthday-message">
+                    You bring so much joy, laughter, and light into every single day. Your smile brightens my world, your presence calms my soul, and your love makes everything feel possible. On your birthday, I want you to know how deeply you mean to me.
+                </p>
+                <p class="birthday-message">
+                    Thank you for being the amazing person you are. Thank you for all the memories we've created, the moments we've shared, and the beautiful journey we're on together. Every day with you is a gift.
+                </p>
+                <p class="birthday-message">
+                    Wishing you a day as beautiful and special as you are. May this year bring you endless happiness, success, health, and all the dreams your heart desires.
+                </p>
+                <p class="birthday-message wishes">
+                    Happy Birthday, my love! 🎂✨💖
+                </p>
+            </div>
+        </section>
+
+        <!-- Music Section -->
+        <section class="music-section">
+            <div class="music-card">
+                <div class="music-icon">🎵</div>
+                <h3>Your Birthday Playlist</h3>
+                <p class="music-description">A song to celebrate you</p>
+                <div class="music-player">
+                    <button class="music-button" id="musicToggle" onclick="toggleMusic()">
+                        <span class="play-icon">▶</span>
+                        <span class="text">Play Song</span>
+                    </button>
+                    <audio id="birthdayAudio" src="" style="display: none;"></audio>
+                    <p class="music-note">🎶 Add your favorite song to make this even more special!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section class="gallery-section">
+            <h3 class="gallery-title">✨ Memories & Moments ✨</h3>
+            <p class="gallery-subtitle">Our beautiful moments together</p>
+            <div class="gallery-container" id="galleryContainer">
+                <!-- Placeholder photos will be here -->
+                <div class="photo-placeholder">
+                    <div class="placeholder-icon">📸</div>
+                    <p>Photo 1</p>
+                </div>
+                <div class="photo-placeholder">
+                    <div class="placeholder-icon">📸</div>
+                    <p>Photo 2</p>
+                </div>
+                <div class="photo-placeholder">
+                    <div class="placeholder-icon">📸</div>
+                    <p>Photo 3</p>
+                </div>
+                <div class="photo-placeholder">
+                    <div class="placeholder-icon">📸</div>
+                    <p>Photo 4</p>
+                </div>
+                <div class="photo-placeholder">
+                    <div class="placeholder-icon">📸</div>
+                    <p>Photo 5</p>
+                </div>
+                <div class="photo-placeholder">
+                    <div class="placeholder-icon">📸</div>
+                    <p>Photo 6</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Wishes Section -->
+        <section class="wishes-section">
+            <div class="wishes-card">
+                <h3>🎉 Birthday Wishes 🎉</h3>
+                <ul class="wishes-list">
+                    <li>✨ May this year be filled with endless moments of happiness</li>
+                    <li>💪 May you achieve all your goals and dreams</li>
+                    <li>🌟 May you always shine as bright as you do in my heart</li>
+                    <li>💝 May you feel loved and cherished every single day</li>
+                    <li>🎯 May this year bring you growth, success, and beautiful surprises</li>
+                    <li>❤️ May you always know how special you are to me</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with 💖 just for you</p>
+            <p class="footer-date">Happy Birthday, Tessy! 🎂</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
