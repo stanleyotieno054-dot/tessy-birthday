@@ -3,142 +3,1155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, Tessy ❤️</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Happy Birthday Tessy Anne ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+
+        /* ========== LOADING SCREEN ========== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: fadeOut 0.8s ease-in-out 3s forwards;
+        }
+
+        .loading-content {
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .loading-heart {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: heartbeat 1.2s ease-in-out infinite;
+        }
+
+        .loading-text {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #d4af37;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+
+        /* ========== WELCOME SCREEN ========== */
+        .welcome-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.8s ease-in-out;
+            pointer-events: auto;
+        }
+
+        .welcome-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .welcome-content {
+            text-align: center;
+            z-index: 10;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 8vw, 56px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff69b4, #d4af37, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .welcome-subtitle {
+            font-size: clamp(16px, 4vw, 24px);
+            font-weight: 300;
+            color: #b0b0b0;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        .welcome-button {
+            padding: 16px 40px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #d4af37, #f0e68c);
+            color: #1a0a2e;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .welcome-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .welcome-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* ========== PARTICLES ========== */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+        }
+
+        .heart-particle {
+            font-size: 20px;
+            animation: particle-fall 3s ease-in forwards;
+        }
+
+        .sparkle-particle {
+            width: 8px;
+            height: 8px;
+            background: #d4af37;
+            border-radius: 50%;
+            animation: sparkle-float 4s ease-in forwards;
+            box-shadow: 0 0 10px #d4af37;
+        }
+
+        @keyframes particle-fall {
+            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes sparkle-float {
+            0% { opacity: 1; transform: translateY(0) translateX(0); }
+            100% { opacity: 0; transform: translateY(-100vh) translateX(100px); }
+        }
+
+        /* ========== CODE INPUT SCREEN ========== */
+        .code-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            opacity: 1;
+            transition: opacity 0.8s ease-in-out;
+            pointer-events: auto;
+        }
+
+        .code-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .code-container {
+            background: rgba(212, 175, 55, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideInDown 0.6s ease-out;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .code-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 6vw, 40px);
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ff69b4, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .code-subtitle {
+            font-size: 16px;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .code-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 24px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            color: #d4af37;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+
+        .code-input:focus {
+            outline: none;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .code-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .code-btn {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(212, 175, 55, 0.1));
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .code-btn:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.3));
+            transform: scale(1.05);
+        }
+
+        .code-btn:active {
+            transform: scale(0.95);
+        }
+
+        .code-btn.delete {
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.3), rgba(255, 105, 180, 0.1));
+            border-color: #ff69b4;
+            color: #ff69b4;
+        }
+
+        .unlock-button {
+            width: 100%;
+            padding: 16px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #d4af37, #f0e68c);
+            color: #1a0a2e;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .unlock-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .code-message {
+            margin-top: 20px;
+            font-size: 14px;
+            min-height: 20px;
+            color: #ff69b4;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .main-content {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 8vw, 56px);
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #ff69b4, #d4af37, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        /* ========== COUNTDOWN SECTION ========== */
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            max-width: 600px;
+        }
+
+        .countdown-item {
+            background: rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #d4af37;
+            text-align: center;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .countdown-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 900;
+            color: #d4af37;
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* ========== MESSAGE SECTION ========== */
+        .message-card {
+            background: rgba(212, 175, 55, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .message-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e0e0e0;
+            letter-spacing: 0.5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* ========== REASONS SECTION ========== */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .reason-card {
+            background: rgba(212, 175, 55, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: slideInUp 0.8s ease-out;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .reason-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #d4af37;
+            letter-spacing: 1px;
+        }
+
+        /* ========== PHOTO GALLERY ========== */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            animation: slideInUp 0.8s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05);
+            border-color: #d4af37;
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(255, 105, 180, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 30px;
+        }
+
+        .photo-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-size: 14px;
+        }
+
+        .placeholder-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        /* ========== MUSIC PLAYER ========== */
+        .music-player {
+            background: rgba(212, 175, 55, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .player-title {
+            text-align: center;
+            font-size: 16px;
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .player-btn {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37, #f0e68c);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a0a2e;
+            font-weight: 700;
+        }
+
+        .player-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #d4af37, #f0e68c);
+            width: 0%;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px #d4af37;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #b0b0b0;
+        }
+
+        /* ========== LOVE BUTTON ========== */
+        .love-button {
+            padding: 20px 40px;
+            font-size: 20px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            letter-spacing: 1px;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .love-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6);
+        }
+
+        .love-button:active {
+            transform: scale(0.95);
+        }
+
+        /* ========== GIFT BOX ========== */
+        .gift-box {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.4);
+            margin-bottom: 30px;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .gift-box:active {
+            animation: none;
+            transform: scale(0.9);
+        }
+
+        /* ========== FINAL SECTION ========== */
+        .final-message {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 6vw, 48px);
+            text-align: center;
+            margin: 30px 0;
+            background: linear-gradient(135deg, #ff69b4, #d4af37, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .final-signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: #d4af37;
+            margin-top: 40px;
+            text-align: center;
+            animation: slideInUp 1s ease-out;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            section { padding: 30px 15px; min-height: auto; }
+            .code-container { padding: 30px; margin: 0 15px; }
+            .message-card { padding: 25px; }
+            .reason-card { min-height: 120px; }
+            .gallery { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+            .countdown { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .countdown-item { padding: 15px; }
+            .countdown-value { font-size: 32px; }
+            .message-text { font-size: 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-title { font-size: 28px; }
+            .code-buttons { gap: 8px; }
+            .code-btn { width: 50px; height: 50px; font-size: 18px; }
+            .gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+        }
+    </style>
 </head>
 <body>
-    <!-- Falling Hearts Background -->
-    <div class="hearts-container" id="heartsContainer"></div>
-
-    <!-- Code Entry Screen -->
-    <div class="screen" id="codeScreen">
-        <div class="code-container">
-            <div class="secret-message">🎁 A Secret Surprise 🎁</div>
-            <h1 class="code-title">Tessy's Birthday Magic</h1>
-            <p class="code-subtitle">Enter the secret code to unlock your surprise</p>
-            
-            <div class="code-input-wrapper">
-                <input 
-                    type="password" 
-                    id="codeInput" 
-                    class="code-input" 
-                    placeholder="••••"
-                    maxlength="4"
-                >
-                <button class="code-button" onclick="checkCode()">Unlock</button>
-            </div>
-            
-            <div class="error-message" id="errorMessage"></div>
-            <p class="hint">💡 Hint: Think of a special year...</p>
+    <!-- LOADING SCREEN -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-heart">❤️</div>
+            <div class="loading-text">Made with love</div>
         </div>
     </div>
 
-    <!-- Main Birthday Experience Screen -->
-    <div class="screen hidden" id="mainScreen">
-        <!-- Header -->
-        <header class="header">
-            <h1 class="main-title">Happy Birthday<br><span class="name-highlight">Tessy</span> ❤️</h1>
-            <p class="date-text">Today is Your Special Day</p>
-        </header>
-
-        <!-- Birthday Message Section -->
-        <section class="message-section">
-            <div class="message-card">
-                <div class="message-icon">💕</div>
-                <h2>A Message Just For You</h2>
-                <p class="birthday-message">
-                    Dear Tessy,
-                </p>
-                <p class="birthday-message">
-                    Happy Birthday to the most wonderful person in my life! Today, I wanted to create something special just for you—a little corner of the internet filled with love, warmth, and all the feelings you inspire in me.
-                </p>
-                <p class="birthday-message">
-                    You bring so much joy, laughter, and light into every single day. Your smile brightens my world, your presence calms my soul, and your love makes everything feel possible. On your birthday, I want you to know how deeply you mean to me.
-                </p>
-                <p class="birthday-message">
-                    Thank you for being the amazing person you are. Thank you for all the memories we've created, the moments we've shared, and the beautiful journey we're on together. Every day with you is a gift.
-                </p>
-                <p class="birthday-message">
-                    Wishing you a day as beautiful and special as you are. May this year bring you endless happiness, success, health, and all the dreams your heart desires.
-                </p>
-                <p class="birthday-message wishes">
-                    Happy Birthday, my love! 🎂✨💖
-                </p>
-            </div>
-        </section>
-
-        <!-- Music Section -->
-        <section class="music-section">
-            <div class="music-card">
-                <div class="music-icon">🎵</div>
-                <h3>Your Birthday Playlist</h3>
-                <p class="music-description">A song to celebrate you</p>
-                <div class="music-player">
-                    <button class="music-button" id="musicToggle" onclick="toggleMusic()">
-                        <span class="play-icon">▶</span>
-                        <span class="text">Play Song</span>
-                    </button>
-                    <audio id="birthdayAudio" src="" style="display: none;"></audio>
-                    <p class="music-note">🎶 Add your favorite song to make this even more special!</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Photo Gallery Section -->
-        <section class="gallery-section">
-            <h3 class="gallery-title">✨ Memories & Moments ✨</h3>
-            <p class="gallery-subtitle">Our beautiful moments together</p>
-            <div class="gallery-container" id="galleryContainer">
-                <!-- Placeholder photos will be here -->
-                <div class="photo-placeholder">
-                    <div class="placeholder-icon">📸</div>
-                    <p>Photo 1</p>
-                </div>
-                <div class="photo-placeholder">
-                    <div class="placeholder-icon">📸</div>
-                    <p>Photo 2</p>
-                </div>
-                <div class="photo-placeholder">
-                    <div class="placeholder-icon">📸</div>
-                    <p>Photo 3</p>
-                </div>
-                <div class="photo-placeholder">
-                    <div class="placeholder-icon">📸</div>
-                    <p>Photo 4</p>
-                </div>
-                <div class="photo-placeholder">
-                    <div class="placeholder-icon">📸</div>
-                    <p>Photo 5</p>
-                </div>
-                <div class="photo-placeholder">
-                    <div class="placeholder-icon">📸</div>
-                    <p>Photo 6</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Special Wishes Section -->
-        <section class="wishes-section">
-            <div class="wishes-card">
-                <h3>🎉 Birthday Wishes 🎉</h3>
-                <ul class="wishes-list">
-                    <li>✨ May this year be filled with endless moments of happiness</li>
-                    <li>💪 May you achieve all your goals and dreams</li>
-                    <li>🌟 May you always shine as bright as you do in my heart</li>
-                    <li>💝 May you feel loved and cherished every single day</li>
-                    <li>🎯 May this year bring you growth, success, and beautiful surprises</li>
-                    <li>❤️ May you always know how special you are to me</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Made with 💖 just for you</p>
-            <p class="footer-date">Happy Birthday, Tessy! 🎂</p>
-        </footer>
+    <!-- WELCOME SCREEN -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <h1 class="welcome-title">Hey Beautiful ❤️</h1>
+            <p class="welcome-subtitle">I made something special just for you...</p>
+            <button class="welcome-button" onclick="goToCodeScreen()">Open Your Surprise 💌</button>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- CODE INPUT SCREEN -->
+    <div class="code-screen" id="codeScreen">
+        <div class="code-container">
+            <h2 class="code-title">This little surprise is locked 🔐</h2>
+            <p class="code-subtitle">Only one person has the key...</p>
+            
+            <input type="password" id="codeInput" class="code-input" placeholder="••••" readonly>
+            
+            <div class="code-buttons" id="codeButtons"></div>
+            
+            <button class="unlock-button" onclick="checkCode()">Unlock My Heart ❤️</button>
+            <div class="code-message" id="codeMessage"></div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content" id="mainContent">
+        <!-- COUNTDOWN SECTION -->
+        <section id="countdownSection">
+            <h2 class="section-title">Happy Birthday, Tessy Anne! 🎂❤️</h2>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">0</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">0</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">0</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">0</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MESSAGE SECTION -->
+        <section id="messageSection">
+            <h2 class="section-title">A Message For You 💌</h2>
+            <div class="message-card">
+                <div class="message-text">
+                    Baby ❤️<br><br>
+                    Today isn't just another day. Today is the day the world was blessed with someone incredibly special — you.<br><br>
+                    I don't think I could ever find enough words to explain how much you mean to me. You've become such a beautiful part of my life, and every memory we've created together means more to me than you know.<br><br>
+                    I love your smile, your laugh, your little moods, your beautiful heart, and even the little things you probably don't realize I notice. 🥺❤️<br><br>
+                    We've had our good days, our difficult days, our silly moments, our arguments and our beautiful moments, but through everything, I'm grateful that it's you. Through every season, you've been there.<br><br>
+                    I hope this new chapter brings you happiness, peace, success, beautiful memories and everything your heart deserves. 👑<br><br>
+                    And whenever life gets difficult, I hope you remember that there is someone here who genuinely cares about you, believes in you and loves you deeply. Someone who would go to the ends of the earth for you.<br><br>
+                    Happy Birthday, my beautiful girl. ❤️<br><br>
+                    I love you, Tessy Anne. More than these words could ever explain. 🫶🏽❤️
+                </div>
+            </div>
+        </section>
+
+        <!-- REASONS SECTION -->
+        <section id="reasonsSection">
+            <h2 class="section-title">A Few Reasons Why You're So Special 💕</h2>
+            <div class="reasons-grid" id="reasonsGrid"></div>
+        </section>
+
+        <!-- PHOTOS SECTION -->
+        <section id="photosSection">
+            <h2 class="section-title">Our Little Memories 📸</h2>
+            <div class="gallery" id="gallery"></div>
+        </section>
+
+        <!-- MUSIC SECTION -->
+        <section id="musicSection">
+            <h2 class="section-title">A Song For You 🎵❤️</h2>
+            <div class="music-player">
+                <div class="player-title">Now Playing</div>
+                <audio id="audioPlayer" style="display: none;"></audio>
+                <div class="player-controls">
+                    <button class="player-btn" onclick="playerPrevious()">⏮</button>
+                    <button class="player-btn" id="playButton" onclick="playerToggle()">▶️</button>
+                    <button class="player-btn" onclick="playerNext()">⏭</button>
+                </div>
+                <div class="progress-bar" onclick="setProgress(event)">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="time-display">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOVE BUTTON SECTION -->
+        <section id="loveSection">
+            <h2 class="section-title">One Special Moment ❤️</h2>
+            <button class="love-button" onclick="triggerLoveExplosion()">Tap This ❤️</button>
+            <div id="loveMessage" class="final-message" style="opacity: 0; margin-top: 40px; transition: opacity 0.6s ease;"></div>
+        </section>
+
+        <!-- GIFT BOX SECTION -->
+        <section id="giftSection">
+            <h2 class="section-title">I Still Have One More Surprise 🎁</h2>
+            <div class="gift-box" onclick="openGift()">🎁</div>
+            <div id="giftMessage" class="final-message" style="opacity: 0; transition: opacity 0.6s ease;"></div>
+            <button class="love-button" id="finalButton" style="opacity: 0; margin-top: 30px; transition: opacity 0.6s ease; pointer-events: none;" onclick="goToFinal()">One Last Thing... 💌</button>
+        </section>
+
+        <!-- FINAL SECTION -->
+        <section id="finalSection" style="opacity: 0; pointer-events: none;">
+            <div class="final-message">Tessy Anne ❤️</div>
+            <div class="final-message" style="font-size: 28px; margin: 20px 0;">If I had to choose you all over again...</div>
+            <div class="final-message" style="font-size: 32px; margin-top: 40px;">I'd still choose you. Every single time. ❤️</div>
+            <div class="final-message">Happy Birthday, My Love 🎂❤️</div>
+            <div class="final-signature">Made with all my heart ❤️<br>For Tessy Anne<br>From someone who loves you deeply 🥺❤️</div>
+        </section>
+    </div>
+
+    <script>
+        // ========== CONFIGURATION ==========
+        const FIRST_CODE = "2008";
+        const SECOND_CODE = "CHANGE_ME";
+        const BIRTHDAY_DATE = new Date(new Date().getFullYear(), 7, 20, 0, 0, 0);
+
+        if (new Date() > BIRTHDAY_DATE) {
+            BIRTHDAY_DATE.setFullYear(BIRTHDAY_DATE.getFullYear() + 1);
+        }
+
+        // ========== REASONS LIST ==========
+        const reasons = [
+            "❤️ Your Smile",
+            "❤️ Your Beautiful Heart",
+            "❤️ The Way You Make Ordinary Moments Special",
+            "❤️ Your Laugh",
+            "❤️ Your Kindness",
+            "❤️ The Way You Make Me Feel Loved",
+            "❤️ Your Strength",
+            "❤️ Simply Being YOU"
+        ];
+
+        // ========== PHOTO PATHS ==========
+        // TO ADD PHOTOS: Create an "images/" folder in your repo and add photo files
+        const photos = [
+            "images/photo1.jpg",
+            "images/photo2.jpg",
+            "images/photo3.jpg",
+            "images/photo4.jpg",
+            "images/photo5.jpg",
+            "images/photo6.jpg"
+        ];
+
+        // ========== MUSIC PLAYLIST ==========
+        // TO ADD MUSIC: Create a "music/" folder in your repo and add mp3 files
+        const playlist = [
+            "music/song.mp3"
+        ];
+
+        let currentSongIndex = 0;
+        let codeInputValue = "";
+
+        // ========== INITIALIZE ==========
+        window.addEventListener('load', () => {
+            initializeCodeButtons();
+            initializeReasons();
+            initializeGallery();
+            initializeAudio();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+
+        // ========== CODE INPUT ==========
+        function initializeCodeButtons() {
+            const codeButtons = document.getElementById('codeButtons');
+            for (let i = 0; i <= 9; i++) {
+                const btn = document.createElement('button');
+                btn.className = 'code-btn';
+                btn.textContent = i;
+                btn.onclick = () => addCodeDigit(i);
+                codeButtons.appendChild(btn);
+            }
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'code-btn delete';
+            deleteBtn.textContent = '⌫';
+            deleteBtn.onclick = deleteCodeDigit;
+            codeButtons.appendChild(deleteBtn);
+        }
+
+        function addCodeDigit(digit) {
+            if (codeInputValue.length < 4) {
+                codeInputValue += digit;
+                document.getElementById('codeInput').value = '•'.repeat(codeInputValue.length);
+                document.getElementById('codeMessage').textContent = '';
+            }
+        }
+
+        function deleteCodeDigit() {
+            codeInputValue = codeInputValue.slice(0, -1);
+            document.getElementById('codeInput').value = '•'.repeat(codeInputValue.length);
+            document.getElementById('codeMessage').textContent = '';
+        }
+
+        function checkCode() {
+            if (codeInputValue === FIRST_CODE) {
+                unlockSurprise();
+            } else {
+                showCodeError();
+            }
+        }
+
+        function showCodeError() {
+            const message = document.getElementById('codeMessage');
+            message.textContent = "Hmm... that's not it, beautiful 😭❤️ Try again.";
+            codeInputValue = "";
+            document.getElementById('codeInput').value = "";
+        }
+
+        function unlockSurprise() {
+            createParticles(50);
+            setTimeout(() => {
+                document.getElementById('codeScreen').classList.add('hidden');
+                document.getElementById('mainContent').classList.add('visible');
+                window.scrollTo(0, 0);
+            }, 600);
+        }
+
+        function goToCodeScreen() {
+            document.getElementById('welcomeScreen').classList.add('hidden');
+            setTimeout(() => {
+                document.getElementById('codeScreen').classList.remove('hidden');
+            }, 100);
+        }
+
+        // ========== COUNTDOWN ==========
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const target = BIRTHDAY_DATE.getTime();
+            const distance = target - now;
+
+            if (distance < 0) {
+                document.getElementById('days').textContent = "🎉";
+                document.getElementById('hours').textContent = "TODAY";
+                document.getElementById('minutes').textContent = "IS";
+                document.getElementById('seconds').textContent = "YOUR DAY!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+
+        // ========== REASONS ==========
+        function initializeReasons() {
+            const grid = document.getElementById('reasonsGrid');
+            reasons.forEach((reason, index) => {
+                const card = document.createElement('div');
+                card.className = 'reason-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.innerHTML = `<div class="reason-text">${reason}</div>`;
+                card.onclick = () => {
+                    card.style.transform = 'scale(1.05)';
+                    setTimeout(() => { card.style.transform = ''; }, 300);
+                    createSmallParticles(10);
+                };
+                grid.appendChild(card);
+            });
+        }
+
+        // ========== GALLERY ==========
+        function initializeGallery() {
+            const gallery = document.getElementById('gallery');
+            photos.forEach((photo, index) => {
+                const card = document.createElement('div');
+                card.className = 'photo-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                const img = document.createElement('img');
+                img.src = photo;
+                img.alt = `Memory ${index + 1}`;
+                img.onerror = function() { this.style.display = 'none'; };
+                card.appendChild(img);
+                const overlay = document.createElement('div');
+                overlay.className = 'photo-overlay';
+                overlay.textContent = '❤️';
+                card.appendChild(overlay);
+                if (!img.src || img.src === '') {
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'photo-placeholder';
+                    placeholder.innerHTML = '<div class="placeholder-icon">📸</div><p>Photo ' + (index + 1) + '</p>';
+                    card.appendChild(placeholder);
+                }
+                gallery.appendChild(card);
+            });
+        }
+
+        // ========== AUDIO PLAYER ==========
+        function initializeAudio() {
+            const audio = document.getElementById('audioPlayer');
+            if (playlist.length > 0) {
+                audio.src = playlist[currentSongIndex];
+            }
+            audio.addEventListener('timeupdate', updateProgress);
+            audio.addEventListener('loadedmetadata', updateDuration);
+            audio.addEventListener('ended', playerNext);
+        }
+
+        function playerToggle() {
+            const audio = document.getElementById('audioPlayer');
+            const btn = document.getElementById('playButton');
+            if (audio.paused) {
+                audio.play().catch(e => console.log('Play error:', e));
+                btn.textContent = '⏸';
+            } else {
+                audio.pause();
+                btn.textContent = '▶️';
+            }
+        }
+
+        function playerNext() {
+            currentSongIndex = (currentSongIndex + 1) % playlist.length;
+            const audio = document.getElementById('audioPlayer');
+            audio.src = playlist[currentSongIndex];
+            audio.play().catch(e => console.log('Play error:', e));
+            document.getElementById('playButton').textContent = '⏸';
+        }
+
+        function playerPrevious() {
+            currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+            const audio = document.getElementById('audioPlayer');
+            audio.src = playlist[currentSongIndex];
+            audio.play().catch(e => console.log('Play error:', e));
+            document.getElementById('playButton').textContent = '⏸';
+        }
+
+        function updateProgress() {
+            const audio = document.getElementById('audioPlayer');
+            const fill = document.getElementById('progressFill');
+            const percent = (audio.currentTime / audio.duration) * 100;
+            fill.style.width = percent + '%';
+            document.getElementById('currentTime').textContent = formatTime(audio.currentTime);
+        }
+
+        function updateDuration() {
+            const audio = document.getElementById('audioPlayer');
+            document.getElementById('duration').textContent = formatTime(audio.duration);
+        }
+
+        function setProgress(event) {
+            const audio = document.getElementById('audioPlayer');
+            const rect = event.currentTarget.getBoundingClientRect();
+            const percent = (event.clientX - rect.left) / rect.width;
+            audio.currentTime = percent * audio.duration;
+        }
+
+        function formatTime(seconds) {
+            if (!seconds || isNaN(seconds)) return '0:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // ========== LOVE EXPLOSION ==========
+        function triggerLoveExplosion() {
+            createConfetti(100);
+            const message = document.getElementById('loveMessage');
+            message.textContent = 'In case you ever forget... you are loved. ❤️';
+            message.style.opacity = '1';
+            setTimeout(() => { message.style.opacity = '0'; }, 3000);
+        }
+
+        // ========== GIFT BOX ==========
+        let giftOpened = false;
+        function openGift() {
+            if (giftOpened) return;
+            giftOpened = true;
+            createConfetti(50);
+            const message = document.getElementById('giftMessage');
+            message.textContent = 'You are one of the best things that ever happened to me. ❤️';
+            message.style.opacity = '1';
+            const button = document.getElementById('finalButton');
+            button.style.opacity = '1';
+            button.style.pointerEvents = 'auto';
+        }
+
+        function goToFinal() {
+            const section = document.getElementById('finalSection');
+            section.style.opacity = '1';
+            section.style.pointerEvents = 'auto';
+            createConfetti(150);
+            window.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
+            setTimeout(() => { document.getElementById('giftSection').style.display = 'none'; }, 500);
+        }
+
+        // ========== PARTICLES ==========
+        function createParticles(count) {
+            const container = document.body;
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'heart-particle';
+                particle.textContent = '❤️';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                container.appendChild(particle);
+                setTimeout(() => particle.remove(), 3000);
+            }
+        }
+
+        function createSmallParticles(count) {
+            const container = document.body;
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'sparkle-particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                container.appendChild(particle);
+                setTimeout(() => particle.remove(), 4000);
+            }
+        }
+
+        function createConfetti(count) {
+            const emojis = ['❤️', '🌹', '✨', '💕', '💗', '🎉'];
+            const container = document.body;
+            for (let i = 0; i < count; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'particle heart-particle';
+                confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '0';
+                confetti.style.fontSize = Math.random() * 20 + 20 + 'px';
+                container.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+    </script>
 </body>
 </html>
